@@ -22,6 +22,8 @@
       </div>
 
       <button type="submit" class="w-100 btn btn-lg btn-primary">Sign in</button>
+      <hr/>
+      <button type="button" class="w-100 btn btn-lg btn-primary" @click="test">Test</button>
 
       <p class="mt-5 mb-3 text-muted">&copy; 2021-2025</p>
     </form>
@@ -30,10 +32,23 @@
 </template>
 
 <script>
+import service from '../../utils/request';
 export default {
   name: 'Login',
   setup() {
     // alert("This is login in")
+  },
+  methods: {
+    test() {
+      service({
+        url: "/apis/test/msg",
+        method: "get"
+      }).then((res) => {
+        alert("222")
+        console.log(res)
+        alert(JSON.stringify(res.data.api_msg))
+      })
+    }
   }
 }
 </script>

@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       // 上传的API的datasets的服务器地址.
-      uploadDatasetsUrl: process.env.VUE_APP_BASE_API + "/datasets/upload",
+      uploadDatasetsUrl: process.env.VUE_APP_BASE_API + "/apis/datasets/upload",
       isUploading: false,
     }
   },

@@ -13,6 +13,7 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 // 引入element-plus
 import ElementPlus from 'element-plus'
 import 'element-plus/lib/theme-chalk/index.css'
+import './utils/request'
 
 const app = createApp(App)
 
