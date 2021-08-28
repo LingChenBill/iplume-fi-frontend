@@ -11,6 +11,7 @@
       :on-progress="handleFileUploadProgress"
       :disabled="isUploading"
       :action="uploadDatasetsUrl"
+      :headers="headers"
       drag
     >
       <i class="el-icon-upload"></i>
@@ -28,6 +29,8 @@
 </template>
 
 <script>
+import { getCsrfToken } from '@/utils/auth'
+
 export default {
   name: 'index',
   data() {
@@ -35,6 +38,9 @@ export default {
       // 上传的API的datasets的服务器地址.
       uploadDatasetsUrl: process.env.VUE_APP_BASE_API + "/apis/datasets/upload",
       isUploading: false,
+      headers: {
+        'X-CSRFToken': getCsrfToken()
+      },
     }
   },
   computed: {
@@ -49,7 +55,8 @@ export default {
     handleFileSuccess(response, file, fileList) {
       this.isUploading = false;
       this.$refs.upload.clearFiles();
-      this.$alert(response.msg, "导入结果", { dangerouslyUseHTMLString: true });
+      console.log(response)
+      this.$alert(response.apiMsg, "导入结果", { dangerouslyUseHTMLString: true });
     },
     // 文件个数超出.
     handleExceed() {

@@ -31,6 +31,7 @@ npm install --save @popperjs/core
 npm install element-plus --save
 npm install vue-router@next --save
 npm install axios --save
+npm install js-cookie --save
 ```
 #### 错误一
 ```text

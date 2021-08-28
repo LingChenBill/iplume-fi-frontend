@@ -1,4 +1,10 @@
 const webpack = require("webpack");
+const path = require('path')
+
+// 解析包路径.
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 // 端口.
 const port = process.env.PORT || 8080
@@ -20,6 +26,12 @@ module.exports = {
     }
   },
   configureWebpack: {
+    // 解析包根路径.
+    resolve: {
+      alias: {
+        '@': resolve('src')
+      }
+    },
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
