@@ -17,6 +17,11 @@ const router = createRouter({
       name: 'api-datasets',
       component: () => import('../components/api/datasets/index.vue')
     },
+    {
+      path: '/html-tag',
+      name: 'html-tag',
+      component: () => import('../components/html/index.vue')
+    }
   ]
 })
 
